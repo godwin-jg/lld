@@ -25,7 +25,7 @@ class TokenBucket: #23
         
         refill = capacity + time_elapsed * self.refill_rate
         
-        bucket['capacity'] = refill
+        bucket['capacity'] =  min(self.capacity, refill)
         bucket['last_refill'] = now
         
         if bucket['capacity'] >= 1.0:
